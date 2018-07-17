@@ -47,3 +47,8 @@ if (keyboard_check(vk_enter)) && (cooldown < 1)
 	cooldown = 30;
 }
 cooldown = cooldown - 1;
+
+//Player Health
+if(player_1){
+	hp-= 10;
+}
