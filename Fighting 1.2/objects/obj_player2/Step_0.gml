@@ -1,7 +1,9 @@
+
+
 // Key input
-key_left = keyboard_check(ord("A"));
-key_right = keyboard_check(ord("D"));
-key_jump = keyboard_check(ord("W"));
+key_left = keyboard_check(vk_left);
+key_right = keyboard_check(vk_right);
+key_jump = keyboard_check(vk_up);
 
 
 // Calculate Movement
@@ -27,13 +29,13 @@ if (place_meeting(x+hsp,y,obj_floor))
 }
 
 
-
 //Player Collsion Horizontal
-if (place_meeting(x+hsp,y,obj_player2))
+if (place_meeting(x+hsp,y,obj_player))
 {
 
 	hsp = 0;
 }
+
 
 
 x = x + hsp;
@@ -48,9 +50,8 @@ if (place_meeting(x,y+vsp,obj_floor))
 	vsp = 0;
 }
 
-
 //Player Collsion Vertical
-if (place_meeting(x,y+vsp,obj_player2))
+if (place_meeting(x,y+vsp,obj_player))
 {
 
 	vsp = 0;
@@ -61,7 +62,7 @@ y = y + vsp;
 
 //Player Facing
 //if (hsp != 0) image_xscale = sign(hsp);
-if (x < obj_player2.x)
+if (x < obj_player.x)
 {
 	image_xscale = 1;
 }
@@ -71,9 +72,8 @@ else
 }
 
 
-
 // Attacking
-if (keyboard_check(vk_space)) && (cooldown < 1)
+if (keyboard_check(vk_enter)) && (cooldown < 1)
 {
 	//instance_create_layer(x,y,layer,obj_attack);
 	sprite_index = ATK;
@@ -85,16 +85,17 @@ else if (cooldown < 15)
 }
 cooldown = cooldown - 1;
 
-//Player Health
-if (place_meeting(x, y, obj_player2) && (keyboard_check(vk_space)))
+if (place_meeting(x, y, obj_player) && (keyboard_check(vk_enter)))
 {
-		obj_player2.hp -= 10;
+		obj_player.hp -= 10;
 		
    }
-   
-   if obj_player.hp <= 0 {
-	show_message("Player 2 WINS!!!");
+
+if obj_player2.hp <= 0 {
+	show_message("Player 1 WINS!!!");
 	game_end();
 }
-   
+//Player Health
+//if(player_1){
+//	hp-= 10;
 //}
