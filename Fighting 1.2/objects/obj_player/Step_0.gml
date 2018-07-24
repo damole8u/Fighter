@@ -77,6 +77,13 @@ if (keyboard_check(vk_space)) && (cooldown < 1)
 {
 	//instance_create_layer(x,y,layer,obj_attack);
 	sprite_index = ATK;
+	if (place_meeting(x, y, obj_player2)) 
+	{
+		//obj_player2.hp -= 10;
+		obj_testdamage.damage +=1;
+	}
+	
+	
 	cooldown = 25;
 }
 else if (cooldown < 15)
@@ -85,16 +92,24 @@ else if (cooldown < 15)
 }
 cooldown = cooldown - 1;
 
+
+//Winning
+if obj_testdamage.damage >= 8 
+	{
+		show_message("Player 1 WINS!!!");
+		game_end();
+	}
+
 //Player Health
-if (place_meeting(x, y, obj_player2) && (keyboard_check(vk_space)))
-{
-		obj_player2.hp -= 10;
+//if (place_meeting(x, y, obj_player2) && (keyboard_check(vk_space)) && (image_index = 1))
+//{
+	//	obj_player2.hp -= 10;
 		
-   }
+   //}
    
-   if obj_player.hp <= 0 {
-	show_message("Player 2 WINS!!!");
-	game_end();
-}
+   //if obj_player.hp <= 0 {
+	//show_message("Player 2 WINS!!!");
+	//game_end();
+//}
    
 //}

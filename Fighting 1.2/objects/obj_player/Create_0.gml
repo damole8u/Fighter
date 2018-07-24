@@ -3,4 +3,4 @@ vsp = 0;
 grv = 1;
 walksp = 7;
 cooldown = 0;
-hp = 100;
+hp = 35;
