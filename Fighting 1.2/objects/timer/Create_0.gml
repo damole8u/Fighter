@@ -1,1 +1,1 @@
-global.seconds = 60;
+global.seconds = 10;
