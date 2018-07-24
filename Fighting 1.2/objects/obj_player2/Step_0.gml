@@ -83,11 +83,7 @@ if (keyboard_check(vk_enter)) && (cooldown < 1)
 		obj_testdamage2.damage +=1;
 	}
 	
-	if obj_player2.hp <= 0 
-	{
-		show_message("Player 2 WINS!!!");
-		game_end();
-	}
+
 	cooldown = 25;
 }
 else if (cooldown < 15)
@@ -95,6 +91,13 @@ else if (cooldown < 15)
 	sprite_index = TestChar;
 }
 cooldown = cooldown - 1;
+
+//winning
+	if obj_testdamage2.damage >= 8 
+	{
+		show_message("Player 2 WINS!!!");
+		game_end();
+	}
 //Player Health
 //if(player_1){
 //	hp-= 10;
