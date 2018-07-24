@@ -207,6 +207,22 @@
             }
         },
         {
+            "Key": "b7eb4c0d-936e-4835-bf05-09ce800204b4",
+            "Value": {
+                "id": "4b925275-fad2-4df5-8ffd-c8e82de0a6a6",
+                "resourcePath": "fonts\\fTimer\\fTimer.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "c74a235e-c547-4320-8319-aea778b0621e",
+            "Value": {
+                "id": "7ed23b02-f0f2-4178-909e-8dc810d0df90",
+                "resourcePath": "objects\\timer\\timer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ca7cfd79-5da3-4b0a-9d68-c800ffb51f83",
             "Value": {
                 "id": "139d4a3f-52f5-440f-9e29-3d3812a81578",
