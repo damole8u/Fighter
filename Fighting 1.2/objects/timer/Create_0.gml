@@ -1,0 +1,1 @@
+global.seconds = 10;

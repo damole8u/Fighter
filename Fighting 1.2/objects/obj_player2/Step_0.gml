@@ -12,6 +12,13 @@ vsp = vsp + grv;
 if (place_meeting(x,y+1,obj_floor) && (key_jump))
 {
 	vsp = -27;
+	if (!place_meeting (x,y+1,obj_floor))
+{
+	
+	sprite_index = spr_player2_jump;
+	image_speed = 0;
+	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
+}
 }
 
 
@@ -76,26 +83,51 @@ else
 if (keyboard_check(vk_enter)) && (cooldown < 1)
 {
 	//instance_create_layer(x,y,layer,obj_attack);
-	sprite_index = ATK;
+	sprite_index = spr_player2_attack;
+	if (place_meeting(x, y, obj_player)) 
+	{
+		//obj_player2.hp -= 10;
+		obj_testdamage2.damage +=1;
+	}
+	
+
 	cooldown = 25;
 }
 else if (cooldown < 15)
 {
-	sprite_index = TestChar;
+	sprite_index = spr_player2_resting;
 }
 cooldown = cooldown - 1;
 
-if (place_meeting(x, y, obj_player) && (keyboard_check(vk_enter)))
-{
-		obj_player.hp -= 10;
-		
-   }
-
-if obj_player2.hp <= 0 {
-	show_message("Player 1 WINS!!!");
-	game_end();
-}
+//winning
+	if obj_testdamage2.damage >= 8 
+	{
+		show_message("Player 2 WINS!!!");
+		game_end();
+	}
 //Player Health
 //if(player_1){
 //	hp-= 10;
 //}
+
+//Animation
+if (!place_meeting (x,y+1,obj_floor))
+{
+	
+	sprite_index = spr_player2_jump;
+	image_speed = 0;
+	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
+}
+
+else
+{
+	if (hsp == 0)
+	{
+		sprite_index = spr_player2_resting;
+	}
+	else
+	{
+		sprite_index = spr_player2_moving
+	}
+}
+	
